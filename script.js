@@ -21,7 +21,7 @@ const memesData = {
         title: "мыш прижали",
         type: "image",
         src: "memes/3.jpg",  
-        description: "Когда коллеги спрашивают, как отдохнул - лучше показать, чем рассказать",
+        description: "мышб прижали, смотри чтоб тебя не прижали",
         date: "3 января 2025"
     },
     4: {
@@ -713,4 +713,5 @@ function init() {
 }
 
 // Запуск при загрузке страницы
+
 document.addEventListener('DOMContentLoaded', init);
