@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мемный Адвент 2025: Год в пикселях</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- YouTube Player API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body>
+    <div class="snowflakes"></div>
+    
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-gift"></i> Мемный Адвент 2025</h1>
+            <p class="subtitle">Каждый день – улыбка из прошлого года</p>
+            
+            <div class="media-types">
+                <span class="media-badge"><i class="fas fa-image"></i> Фото</span>
+                <span class="media-badge"><i class="fas fa-video"></i> Видео</span>
+                <span class="media-badge"><i class="fab fa-youtube"></i> YouTube</span>
+                <span class="media-badge"><i class="fas fa-film"></i> GIF</span>
+            </div>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span id="days">0</span>
+                    <small>дней</small>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">0</span>
+                    <small>часов</small>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">0</span>
+                    <small>минут</small>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">0</span>
+                    <small>секунд</small>
+                </div>
+            </div>
+            
+            <div class="current-date">
+                <i class="fas fa-calendar-alt"></i>
+                <span id="today">Сегодня: 1 декабря 2024</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="calendar" id="calendar">
+                <!-- Карточки будут сгенерированы через JavaScript -->
+            </div>
+            
+            <div class="info">
+                <p><i class="fas fa-info-circle"></i> Каждая карточка активируется только на один день (24 часа) соответствующей даты декабря</p>
+                <p><i class="fas fa-play-circle"></i> Некоторые мемы содержат видео — нажмите на кнопку воспроизведения</p>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Вспоминаем самые смешные моменты уходящего 2025 года</p>
+            <p class="social">
+                Поделиться: 
+                <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Модальное окно для просмотра мема -->
+    <div class="modal" id="memeModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <div class="modal-header">
+                <h2 id="memeTitle">Мем дня</h2>
+                <div class="meme-meta">
+                    <span class="meme-date" id="memeDate">1 декабря 2025</span>
+                    <span class="media-type-badge" id="mediaTypeBadge">Фото</span>
+                </div>
+            </div>
+            <div class="meme-container">
+                <!-- Контейнер для изображений -->
+                <div class="media-container" id="imageContainer">
+                    <img id="memeImage" src="" alt="Мем дня" class="meme-media">
+                </div>
+                
+                <!-- Контейнер для видео (MP4, WebM, etc.) -->
+                <div class="media-container" id="videoContainer" style="display: none;">
+                    <video id="memeVideo" controls class="meme-media">
+                        Ваш браузер не поддерживает видео тег.
+                    </video>
+                </div>
+                
+                <!-- Контейнер для YouTube -->
+                <div class="media-container" id="youtubeContainer" style="display: none;">
+                    <div id="youtubePlayer"></div>
+                </div>
+                
+                <!-- Контейнер для GIF -->
+                <div class="media-container" id="gifContainer" style="display: none;">
+                    <img id="memeGif" src="" alt="GIF мем" class="meme-media">
+                    <div class="gif-controls">
+                        <button id="playGif" class="gif-btn">
+                            <i class="fas fa-play"></i> Воспроизвести GIF
+                        </button>
+                        <button id="pauseGif" class="gif-btn" style="display: none;">
+                            <i class="fas fa-pause"></i> Пауза
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="meme-description">
+                    <p id="memeDescription">Описание мема появится здесь</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="share-btn" id="shareBtn">
+                    <i class="fas fa-share-alt"></i> Поделиться
+                </button>
+                <button class="back-btn" id="backBtn">
+                    <i class="fas fa-arrow-left"></i> Вернуться к календарю
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="soundEffect" src="https://assets.mixkit.co/sfx/preview/mixkit-unlock-game-notification-253.mp3" preload="auto"></audio>
+    <audio id="videoSound" preload="auto"></audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
